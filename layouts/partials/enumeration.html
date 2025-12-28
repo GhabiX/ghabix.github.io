@@ -1,0 +1,16 @@
+<section>
+    <h2>
+        {{- $iconMap := dict "Education" "education-icon.png" "Honors and Awards" "award-icon.png" "Services" "service-icon.png" "Publications" "publication-icon.png" "Teaching" "teaching-icon.png" -}}
+        {{- $icon := index $iconMap .Title -}}
+        {{- if $icon -}}
+            <img src="{{- (resources.Get (printf "/images/%s" $icon)).RelPermalink -}}" alt="{{- .Title -}}" style="width: 24px; height: 24px; margin-right: 8px; vertical-align: text-bottom;" />
+        {{- end -}}
+        {{- .Title -}}
+    </h2>
+    {{- if .Description -}}
+    <p> {{- .Description | .Page.RenderString -}}</p>
+    {{- end -}}
+    <p>
+        {{- partial "enumeration-core.html" (dict "Page" .Page "Data" .Data) -}}
+    </p>
+</section>

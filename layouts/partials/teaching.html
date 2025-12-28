@@ -1,0 +1,13 @@
+<section>
+    <h2><img src="{{- (resources.Get "/images/teaching-icon.png").RelPermalink -}}" alt="Teaching" style="width: 24px; height: 24px; margin-right: 8px; vertical-align: text-bottom;" />Teaching</h2>
+    <p><strong>I have served as a teaching assistant for the following courses at UCI:</strong></p>
+    <p>
+        {{- partial "enumeration-core.html" (dict "Page" .Page "Data" .Site.Data.teaching_uci) -}}
+    </p>
+    <details>
+        <summary>&nbsp; <strong>I also served as a teaching assistant for the following courses at SUSTech:</strong></summary>
+        <p>
+            {{- partial "enumeration-core.html" (dict "Page" .Page "Data" .Site.Data.teaching_sustech) -}}
+        </p>
+    </details>
+</section>

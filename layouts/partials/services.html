@@ -1,0 +1,52 @@
+<section>
+    <h2>
+        <img src="{{- (resources.Get "/images/service-icon.png").RelPermalink -}}" alt="Services"
+            style="width: 24px; height: 24px; margin-right: 8px; vertical-align: text-bottom;" />
+        Services
+    </h2>
+
+    {{- if .Site.Data.services.journals -}}
+    <h4>Journal Reviewer</h4>
+    <ul>
+        {{- range .Site.Data.services.journals -}}
+        <li>{{- .title | $.Page.RenderString -}}</li>
+        {{- end -}}
+    </ul>
+    {{- end -}}
+
+    {{- if .Site.Data.services.external_reviewer -}}
+    <h4>Conference Reviewer</h4>
+    <ul>
+        {{- range .Site.Data.services.external_reviewer -}}
+        <li>{{- .title | $.Page.RenderString -}}</li>
+        {{- end -}}
+    </ul>
+    {{- end -}}
+
+    {{- if .Site.Data.services.artifact_evaluation -}}
+    <h4>Artifact Evaluation</h4>
+    <ul>
+        {{- range .Site.Data.services.artifact_evaluation -}}
+        <li>{{- .title | $.Page.RenderString -}}</li>
+        {{- end -}}
+    </ul>
+    {{- end -}}
+
+    {{- if .Site.Data.services.sub_reviewer -}}
+    <h4>Research Track (Conferences)</h4>
+    <ul>
+        {{- range .Site.Data.services.sub_reviewer -}}
+        <li>{{- .title | $.Page.RenderString -}}</li>
+        {{- end -}}
+    </ul>
+    {{- end -}}
+
+    {{- if .Site.Data.services.conference_volunteer -}}
+    <h4>Conference Volunteer</h4>
+    <ul>
+        {{- range .Site.Data.services.conference_volunteer -}}
+        <li>{{- .title | $.Page.RenderString -}}</li>
+        {{- end -}}
+    </ul>
+    {{- end -}}
+</section>

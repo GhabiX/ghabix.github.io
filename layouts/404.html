@@ -1,0 +1,23 @@
+{{- define "head" -}}
+<meta http-equiv="refresh" content="5; url=/" />
+{{ end }}
+{{- define "header" -}}
+<h1>
+    {{- .Site.Title -}}
+</h1>
+<picture class="institution-logo">
+    <source srcset="{{- (resources.Get "/images/sustech-logo.png").RelPermalink -}}"
+        media="(prefers-color-scheme: dark)">
+    <img alt="SUSTech Logo" src="{{- (resources.Get "/images/sustech-logo.png").RelPermalink -}}" />
+</picture>
+{{- end -}}
+
+{{ define "main" }}
+<section>
+    <div>
+        <h2>Oops...&nbsp;HTTP 404</h2>
+        <p>I could not find the resource you are looking for.</p>
+        <p>You will be redirected to the home page in 5 seconds.</p>
+    </div>
+</section>
+{{ end }}

@@ -1,0 +1,15 @@
+/
+    Link: </style.min.css>; rel=preload; as=style
+    Link: </images/yirui.jpg>; rel=preload; as=image
+    Link: </images/UCI-logo.png>; rel=preload; as=image; media=(prefers-color-scheme: light)
+    Link: </images/UCI-logo-dark.png>; rel=preload; as=image; media=(prefers-color-scheme: dark)
+    Link: </fonts/Electrolize/Electrolize-Regular.woff2>; rel=preload; as=font
+    
+/*
+    Permissions-Policy: interest-cohort=()
+
+/files/*
+    X-Robots-Tag: none
+
+/images/*
+    X-Robots-Tag: noimageindex

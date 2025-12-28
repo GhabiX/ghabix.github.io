@@ -1,0 +1,163 @@
+conferencePapers:
+  # FSE 2026 - ADI
+  - title: "Empowering Autonomous Debugging Agents with Efficient Dynamic Analysis"
+    conference_name: "The ACM International Conference on the Foundations of Software Engineering."
+    conference_abbr: FSE 2026
+    conference_link: https://conf.researchr.org/home/fse-2026
+    venue_city: Montreal, Canada
+    date: July 2026
+    links: []
+    authors:
+      - jiahong
+      - xiaoyang_xu
+      - xiaopan_chu
+      - hongliang_tian
+      - yuqun
+
+  # ICSE 2026
+  - title: "Evaluating and Improving Automated Repository-Level Rust Issue Resolution with LLM-based Agents"
+    conference_name: "The 48<sup>th</sup> IEEE/ACM International Conference on Software Engineering."
+    conference_abbr: ICSE 2026
+    conference_link: https://conf.researchr.org/home/icse-2026
+    venue_city: Rio De Janeiro, Brazil
+    date: Apr. 2026
+    links:
+      - text: PDF
+        target: /files/icse2026-rust-swe-bench.pdf
+        download: false
+      - text: GitHub
+        target: https://github.com/GhabiX/Rust-SWE-Bench
+        download: false
+    authors:
+      - jiahong
+      - wenxiao_he
+      - xihua_wang
+      - hongliang_tian
+      - yuqun
+
+  # ICSE 2025 - Distinguished Paper Award (Co-first author)
+  - title: "Tumbling Down the Rabbit Hole: How do Assisting Exploration Strategies Facilitate Grey-box Fuzzing?"
+    conference_name: "The 47<sup>th</sup> IEEE/ACM International Conference on Software Engineering."
+    conference_abbr: ICSE 2025
+    conference_link: https://conf.researchr.org/home/icse-2025
+    venue_city: Ottawa, Canada
+    date: Apr. 2025
+    award: "ACM SIGSOFT Distinguished Paper Award"
+    links:
+      - text: PDF
+        target: https://zhangyuqun.github.io/publications/icse2025.pdf
+        download: false
+      - text: GitHub
+        target: https://github.com/GhabiX/CDFuzz
+        download: false
+    authors:
+      - mingyuan_wu#
+      - jiahong#
+      - kunqiu_chen
+      - peng_di
+      - shinhwei_tan
+      - heming_cui
+      - yuqun
+
+journalPapers:
+  # JoS 2025 (Chinese)
+  - title: "A Comprehensive Review of the Application and Development of Large Language Models in Software Defect Detection and Repair"
+    journal_name: "Journal of Software (in Chinese)"
+    journal_abbr: JoS 2025
+    journal_link: https://www.jos.org.cn/jos/article/abstract/7268
+    links:
+      - text: PDF
+        target: https://zhangyuqun.github.io/publications/jos2025.pdf
+        download: false
+    authors:
+      - jiahong
+      - xiaoyang_xu
+      - fanchu_kong
+      - pai_peng
+      - zhao_zhang
+      - yuqun
+
+conferencePapersOld:
+  # FSE 2023
+  - title: "Enhancing Coverage-guided Fuzzing via Phantom Program"
+    conference_name: "The 31<sup>st</sup> ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering."
+    conference_abbr: FSE 2023
+    conference_link: https://conf.researchr.org/home/fse-2023
+    venue_city: San Francisco, USA
+    date: Dec. 2023
+    links:
+      - text: PDF
+        target: https://zhangyuqun.github.io/publications/fse2023a.pdf
+        download: false
+    authors:
+      - mingyuan_wu
+      - kunqiu_chen
+      - qi_luo
+      - jiahong
+      - ji_qi
+      - junjie_chen
+      - heming_cui
+      - yuqun
+
+  # ICSE 2022 - Neural Program-Smoothing-based Fuzzing
+  - title: "Evaluating and Improving Neural Program-Smoothing-based Fuzzing"
+    conference_name: "The 44<sup>th</sup> IEEE/ACM International Conference on Software Engineering."
+    conference_abbr: ICSE 2022
+    conference_link: https://conf.researchr.org/home/icse-2022
+    venue_city: Pittsburgh, PA, USA
+    date: May 2022
+    links:
+      - text: PDF
+        target: https://zhangyuqun.github.io/publications/icse2022a.pdf
+        download: false
+    authors:
+      - mingyuan_wu
+      - ling_jiang
+      - jiahong
+      - yuqun
+      - guowei_yang
+      - huixin_ma
+      - sen_nie
+      - shi_wu
+      - heming_cui
+      - lingming
+
+  # ICSE 2022 - One Fuzzing Strategy to Rule Them All
+  - title: "One Fuzzing Strategy to Rule Them All"
+    conference_name: "The 44<sup>th</sup> IEEE/ACM International Conference on Software Engineering."
+    conference_abbr: ICSE 2022
+    conference_link: https://conf.researchr.org/home/icse-2022
+    venue_city: Pittsburgh, PA, USA
+    date: May 2022
+    links:
+      - text: PDF
+        target: https://zhangyuqun.github.io/publications/icse2022b.pdf
+        download: false
+    authors:
+      - mingyuan_wu
+      - ling_jiang
+      - jiahong
+      - yanwei_huang
+      - heming_cui
+      - lingming
+      - yuqun
+
+arxivPapers:
+  # SRepair - arXiv
+  - title: "How Far Can We Go with Practical Function-Level Program Repair?"
+    arxiv_id: "ArXiv"
+    links:
+      - text: arXiv
+        target: https://arxiv.org/abs/2404.12833
+        download: false
+      - text: GitHub
+        target: https://github.com/GhabiX/SRepair
+        download: false
+    authors:
+      - jiahong
+      - xiaoyang_xu
+      - fanchu_kong
+      - mingyuan_wu
+      - zizheng_zhang
+      - haotian_zhang
+      - yuqun

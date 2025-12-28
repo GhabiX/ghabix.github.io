@@ -1,0 +1,73 @@
+baseURL: https://jiahongxiang.github.io
+languageCode: en-us
+title: Jiahong Xiang's Academic Profile
+timeZone: Asia/Shanghai
+
+params:
+  description: Jiahong Xiang - PhD Student at SUSTech, focusing on Greybox Fuzzing, LLM-Agent Program Repair, and Debugging Agents.
+  title: Jiahong Xiang's Academic Profile
+  images:
+    - /images/jiahong.jpg
+
+frontmatter:
+  lastmod:
+    - :git
+    - :fileModTime
+    - lastmod
+
+markup:
+    defaultMarkdownHandler: Goldmark
+    goldmark:
+      extensions:
+        definitionList: true
+        footnote: true
+        linkify: true
+        strikethrough: true
+        table: true
+        taskList: true
+        typographer: true
+      parser:
+        attribute:
+          block: true
+          title: true
+        autoHeadingID: true
+        autoHeadingIDType: github
+      renderer:
+        hardWraps: false
+        unsafe: true
+        xhtml: false
+
+minify:
+  minifyOutput: true
+  tdewolff:
+    css:
+      precision: 0
+      keepCSS2: false
+    html:
+      keepComments: false
+      keepConditionalComments: false
+      keepDefaultAttrVals: true
+      keepDocumentTags: true
+      keepEndTags: true
+      keepQuotes: true
+      keepWhitespace: false
+    js:
+      keepVarNames: false
+      precision: 0
+    json:
+      keepNumbers: false
+      precision: 0
+    svg:
+      precision: 0
+    xml:
+      keepWhitespace: false
+
+disableKinds:
+    - categories
+    - tags
+    - term
+    - taxonomy
+    - RSS
+
+enableRobotsTXT: true
+enableGitInfo: true

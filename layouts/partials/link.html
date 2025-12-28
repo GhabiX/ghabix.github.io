@@ -1,0 +1,6 @@
+
+{{- if .download -}}
+    <a href="{{ .target }}" target="_blank" download>{{ .text }}</a>
+{{- else -}}
+    <a href="{{ .target }}" target="_blank">{{ .text }}</a>
+{{- end -}}

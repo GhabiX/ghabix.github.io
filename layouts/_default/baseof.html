@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#002244">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+    <title>{{- .Site.Title -}}</title>
+    <!-- LXGW WenKai Chinese Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" />
+    {{ partial "head/resources-link.html" . }}
+    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/twitter_cards.html" . }}
+    {{ template "_internal/schema.html" . }}
+    {{- block "head" . }}
+    {{- end }}
+</head>
+
+<body>
+    <header>
+        {{- block "header" . }}
+        {{- end }}
+    </header>
+    <main>
+        {{- block "main" . }}
+        {{- end }}
+    </main>
+    <footer>
+        <div>
+            <small>&copy; {{ now.Format "2006" }} Jiahong Xiang. All rights reserved.</small>
+        </div>
+    </footer>
+</body>
+
+</html>

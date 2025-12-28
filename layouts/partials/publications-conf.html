@@ -1,0 +1,126 @@
+{{- define "partials/conference-paper-item" -}}
+{{ $p := site.GetPage "" }}
+{{- $hasEqualContrib := false -}}
+{{- range .authors -}}
+{{- if strings.HasSuffix . "#" -}}
+{{- $hasEqualContrib = true -}}
+{{- end -}}
+{{- end -}}
+<span>
+    <abbr title="{{ .conference_name | $p.RenderString }}">
+        <a href="{{ .conference_link | safeURL }}" target="_blank">
+            <strong>
+                {{- .conference_abbr -}}
+            </strong>
+        </a>
+    </abbr>
+</span>&nbsp;
+{{- partial "author-list.html" .authors -}}
+{{- $needsDot := not (or (strings.HasSuffix .title "?") (strings.HasSuffix .title "!") (strings.HasSuffix .title "."))
+-}}
+<span><strong>{{- .title -}}{{- if $needsDot -}}.{{- end -}}</strong></span>
+<span>In <i>Proceedings of&nbsp;{{- .conference_name | $p.RenderString -}}</i></span>
+<span>{{- .venue_city -}},</span>
+<span>{{- .date -}}.</span>
+{{- if .links -}}
+{{- range .links -}}
+<span class="pub-link">
+    {{- partial "link" . -}}
+</span>
+{{- end -}}
+{{- else -}}
+<span> To appear.</span>
+{{- end -}}
+{{- if .award -}}
+<span class="pub-award"><strong>{{ .award }}</strong></span>
+{{- end -}}
+{{- if $hasEqualContrib -}}
+<span class="pub-equal-contrib">(# equal contribution)</span>
+{{- end -}}
+{{- end -}}
+
+{{- define "partials/journal-paper-item" -}}
+{{ $p := site.GetPage "" }}
+<span>
+    <abbr title="{{ .journal_name | $p.RenderString }}">
+        {{- if .journal_link -}}
+        <a href="{{ .journal_link | safeURL }}" target="_blank">
+            <strong>{{- .journal_abbr -}}</strong>
+        </a>
+        {{- else -}}
+        <strong>{{- .journal_abbr -}}</strong>
+        {{- end -}}
+    </abbr>
+</span>&nbsp;
+{{- partial "author-list.html" .authors -}}
+<span><strong>{{- .title -}}.</strong></span>
+<span><i>{{- .journal_name | $p.RenderString -}}</i></span>
+{{- if .links -}}
+{{- range .links -}}
+<span class="pub-link">
+    {{- partial "link" . -}}
+</span>
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "partials/arxiv-paper-item" -}}
+{{ $p := site.GetPage "" }}
+<span>
+    <strong>{{- .arxiv_id -}}</strong>
+</span>&nbsp;
+{{- partial "author-list.html" .authors -}}
+{{- $needsDot := not (or (strings.HasSuffix .title "?") (strings.HasSuffix .title "!") (strings.HasSuffix .title "."))
+-}}
+<span><strong>{{- .title -}}{{- if $needsDot -}}.{{- end -}}</strong></span>
+{{- if .links -}}
+{{- range .links -}}
+<span class="pub-link">
+    {{- partial "link" . -}}
+</span>
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{ $pubIcon := resources.Get "/images/publication-icon.png" }}
+<section>
+    <h2><img src="{{ $pubIcon.RelPermalink }}" alt="Publications"
+            style="width: 24px; height: 24px; margin-right: 8px; vertical-align: text-bottom;" />Publications</h2>
+    <ul>
+        {{- $people := .Site.Data.people -}}
+        {{- range .Site.Data.publications.conferencePapers -}}
+        <li>
+            <p class="pub-item">
+                {{- partial "conference-paper-item" . -}}
+            </p>
+        </li>
+        {{- end -}}
+        {{- range .Site.Data.publications.journalPapers -}}
+        <li>
+            <p class="pub-item">
+                {{- partial "journal-paper-item" . -}}
+            </p>
+        </li>
+        {{- end -}}
+        {{- range .Site.Data.publications.conferencePapersOld -}}
+        <li>
+            <p class="pub-item">
+                {{- partial "conference-paper-item" . -}}
+            </p>
+        </li>
+        {{- end -}}
+    </ul>
+
+    {{- if .Site.Data.publications.arxivPapers -}}
+    <h3>Preprints</h3>
+    <ul>
+        {{- range .Site.Data.publications.arxivPapers -}}
+        <li>
+            <p class="pub-item">
+                {{- partial "arxiv-paper-item" . -}}
+            </p>
+        </li>
+        {{- end -}}
+    </ul>
+    {{- end -}}
+</section>

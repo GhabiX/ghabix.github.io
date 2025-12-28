@@ -1,0 +1,21 @@
+{{ $data := .Data }}
+{{ $p := .Page }}
+<ul class="education-list">
+    {{- range $item := $data -}}
+    <li class="education-item">
+        <div class="education-header">
+            <div class="education-title">{{- $item.title | $p.RenderString -}}</div>
+            {{- if $item.date -}}
+            <div class="education-date">{{- $item.date -}}</div>
+            {{- end -}}
+        </div>
+        {{- if $item.details -}}
+        <ul class="education-details">
+            {{- range $detail_item := $item.details -}}
+            <li>{{- $detail_item | $p.RenderString -}}</li>
+            {{- end -}}
+        </ul>
+        {{- end -}}
+    </li>
+    {{- end -}}
+</ul>

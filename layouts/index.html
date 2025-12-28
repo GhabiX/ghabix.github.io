@@ -1,0 +1,39 @@
+{{- define "head" -}}
+<link rel="preload" as="image" href="{{- (resources.Get "images/jiahong.jpg").RelPermalink -}}">
+{{ end }}
+{{- define "header" -}}
+<h1>{{- .Site.Data.info.name -}}</h1>
+<picture class="institution-logo">
+    <source srcset="{{- (resources.Get "images/sustech-logo.png").RelPermalink -}}"
+        media="(prefers-color-scheme: dark)">
+    <img alt="SUSTech Logo" src="{{- (resources.Get "images/sustech-logo.png").RelPermalink -}}" />
+</picture>
+{{- end -}}
+
+{{- define "main" -}}
+<section class="intro">
+    <div class="intro-basic">
+        <h1>Ph.D. Student</h1>
+        <p>{{- delimit (apply .Site.Data.info.links "partial" "link" ".") "&nbsp;&#124;&nbsp;" | safeHTML -}}</p>
+    </div>
+    <div class="intro-email">
+        <p>
+            <strong>Email:&nbsp;</strong><code>{{ .Site.Data.info.email }}</code>
+        </p>
+    </div>
+    <address class="intro-addr">{{ .Site.Data.info.address | safeHTML }}</address>
+    <img class="intro-img" src="{{ (resources.Get "images/jiahong.jpg").RelPermalink }}"
+        alt="Photo of{{- .Site.Data.info.name -}}">
+</section>
+<section>
+    <p>
+        {{- replace .Site.Data.info.intro "\n" "" | .Page.RenderString -}}
+    </p>
+</section>
+{{- partial "enumeration.html" (dict "Page" .Page "Title" "Education" "Description" nil "Data" .Site.Data.education) -}}
+{{- partial "publications-conf.html" . -}}
+{{- partial "enumeration.html" (dict "Page" .Page "Title" "Honors and Awards" "Description" nil "Data"
+.Site.Data.awards) -}}
+{{- partial "services.html" . -}}
+{{- partial "outside-lab.html" . -}}
+{{- end -}}

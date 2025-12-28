@@ -1,0 +1,131 @@
+<br />
+<section>
+    <h2><img src="{{- (resources.Get "images/out-lab.png").RelPermalink -}}" alt="Outside the Lab"
+            style="width: 24px; height: 24px; margin-right: 8px; vertical-align: text-bottom;" />Outside the Lab</h2>
+    <p>
+        {{- .Site.Data.outside_lab.content | .Page.RenderString -}}
+    </p>
+
+    <div id="hiking-modal" class="hiking-modal" onclick="closeHikingModal()">
+        <img src="{{ (resources.Get "images/hiking.jpg").RelPermalink }}" alt="Hiking in the Wild">
+        <p class="modal-caption" onclick="event.stopPropagation()">
+            Using feet to measure the world · Sanshui Line, Shenzhen (深圳三水线, Dec. 2024)
+        </p>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="goldberg-modal" class="hiking-modal" onclick="closeGoldbergModal()">
+        <iframe id="goldberg-iframe" src="" scrolling="no" border="0" frameborder="no" framespacing="0"
+            allowfullscreen="true"></iframe>
+    </div>
+
+    <!-- Seagram Modal -->
+    <div id="seagram-modal" class="hiking-modal" onclick="closeSeagramModal()">
+        <img src="{{ (resources.Get "images/seagram.jpg").RelPermalink }}" alt="Seagram Building">
+        <p class="modal-caption" onclick="event.stopPropagation()">
+            <a href="https://en.wikipedia.org/wiki/Seagram_Building" target="_blank">Seagram Building (西格拉姆大厦)</a> ·
+            Ludwig Mies van der Rohe
+        </p>
+    </div>
+
+    <!-- Psychology Modal -->
+    <div id="psychology-modal" class="hiking-modal" onclick="closePsychologyModal()">
+        <img src="{{ (resources.Get "images/zzz.jpg").RelPermalink }}" alt="Wang Huning's Political Life">
+        <p class="modal-caption" onclick="event.stopPropagation()">
+            Political Life (政治的人生, 1995) · Wang Huning (王沪宁)<br>
+            <span style="font-size: 0.85em; opacity: 0.8; font-style: italic;">
+                "Peace nurtures infinite possibilities." (和平养无限天机)
+            </span>
+        </p>
+    </div>
+
+    <!-- History Modal -->
+    <div id="history-modal" class="hiking-modal" onclick="closeHistoryModal()">
+        <img src="{{ (resources.Get "images/hadrian.jpg").RelPermalink }}" alt="Silver Denarius of Hadrian">
+        <p class="modal-caption" onclick="event.stopPropagation()">
+            Silver Denarius of Hadrian (五贤帝哈德良银币)<br>
+            <span style="font-size: 0.85em; opacity: 0.8; font-style: italic; display: block; margin-top: 4px;">
+                "Fere libenter homines id quod volunt credunt."<br>
+                (In most cases men willingly believe what they wish · 人大都乐于相信自己所希望的事情)<br>
+                — Caesar, Gallic Wars 3.18
+            </span>
+        </p>
+    </div>
+
+    <!-- Social Sciences Modal -->
+    <div id="social-sciences-modal" class="hiking-modal" onclick="closeSocialSciencesModal()">
+        <img src="{{ (resources.Get "images/freedom.jpg").RelPermalink }}" alt="Freedom">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Setup simple image modals
+            setupModal('hiking-trigger', 'hiking-modal');
+            setupModal('seagram-trigger', 'seagram-modal');
+            setupModal('psychology-trigger', 'psychology-modal');
+            setupModal('history-trigger', 'history-modal');
+            setupModal('social-sciences-trigger', 'social-sciences-modal');
+
+            // Goldberg Logic (Special case because of iframe)
+            const gTrigger = document.getElementById('goldberg-trigger');
+            const gModal = document.getElementById('goldberg-modal');
+            const gIframe = document.getElementById('goldberg-iframe');
+            // Bilibili Embed with High Quality & No Danmaku parameters
+            const videoSrc = "//player.bilibili.com/player.html?bvid=BV1Er421j7j5&page=1&high_quality=1&danmaku=0";
+
+            if (gTrigger && gModal) {
+                gTrigger.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    gIframe.src = videoSrc; // Load video only when clicked
+                    gModal.style.display = 'flex';
+                    requestAnimationFrame(() => {
+                        gModal.classList.add('show');
+                    });
+                });
+            }
+        });
+
+        // Refactored helper to reduce duplication for image modals
+        function setupModal(triggerId, modalId) {
+            const trigger = document.getElementById(triggerId);
+            const modal = document.getElementById(modalId);
+            if (trigger && modal) {
+                trigger.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    modal.style.display = 'flex';
+                    requestAnimationFrame(() => {
+                        modal.classList.add('show');
+                    });
+                });
+            }
+        }
+
+        function closeHikingModal() { closeModal('hiking-modal'); }
+        function closeSeagramModal() { closeModal('seagram-modal'); }
+        function closePsychologyModal() { closeModal('psychology-modal'); }
+        function closeHistoryModal() { closeModal('history-modal'); }
+        function closeSocialSciencesModal() { closeModal('social-sciences-modal'); }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
+            }
+        }
+
+        function closeGoldbergModal() {
+            const modal = document.getElementById('goldberg-modal');
+            const iframe = document.getElementById('goldberg-iframe');
+            if (modal) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    if (iframe) iframe.src = ""; // Stop playback
+                }, 300);
+            }
+        }
+    </script>
+</section>

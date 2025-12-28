@@ -1,0 +1,32 @@
+{{- define "partials/author-link" -}}
+{{ $p := site.GetPage "" }}
+{{- $isCoFirst := (strings.HasSuffix . "#") -}}
+{{- $isCorresponding := (strings.HasSuffix . "*") -}}
+{{- $authorId := . | strings.TrimRight "#" | strings.TrimRight "*" -}}
+{{- $author := (index site.Data.people $authorId)}}
+{{- $suffix := "" -}}
+{{- if $isCoFirst -}}
+{{- $suffix = (printf "%s%s" $suffix "<sup>#</sup>") -}}
+{{- end -}}
+{{- if $isCorresponding -}}
+{{- $suffix = (printf "%s%s" $suffix "<sup>*</sup>") -}}
+{{- end -}}
+{{- $authorName := $author.name -}}
+{{- if eq $author.name "Jiahong Xiang" -}}
+{{- $authorName = (printf "<u>%s</u>" $author.name) -}}
+{{- end -}}
+{{- $content := "" -}}
+{{- if eq $author.link "none" -}}
+{{- $content = (printf "%s%s" $authorName $suffix | $p.RenderString )}}
+{{- else if eq $author.link "" -}}
+{{- $scholarUrl := (printf "https://scholar.google.com/scholar?%s" ( querify "q" $author.name)) | urls.Parse -}}
+{{- $content = (printf "[%s](%s)%s" $authorName $scholarUrl $suffix | $p.RenderString )}}
+{{- else -}}
+{{- $content = (printf "[%s](%s)%s" $authorName ($author.link | safeURL ) $suffix | $p.RenderString )}}
+{{- end -}}
+{{- return $content }}
+{{- end -}}
+
+<span class="author-list">
+    {{- delimit (apply . "partial" "author-link" ".") ", " ", and " | safeHTML -}}.
+</span>
