@@ -22,9 +22,6 @@ conferencePapers:
     venue_city: Rio De Janeiro, Brazil
     date: Apr. 2026
     links:
-      - text: PDF
-        target: /files/icse2026-rust-swe-bench.pdf
-        download: false
       - text: GitHub
         target: https://github.com/GhabiX/Rust-SWE-Bench
         download: false
