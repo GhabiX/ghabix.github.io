@@ -23,7 +23,7 @@ conferencePapers:
     date: Apr. 2026
     links:
       - text: PDF
-        target: /files/icse2026-rust-swe-bench.pdf
+        target: files/icse2026-rust-swe-bench.pdf
         download: false
       - text: GitHub
         target: https://github.com/GhabiX/Rust-SWE-Bench
