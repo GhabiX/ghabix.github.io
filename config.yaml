@@ -1,4 +1,4 @@
-baseURL: https://ghabix.github.io/JiahongXiang
+baseURL: https://ghabix.github.io/
 languageCode: en-us
 title: Homepage of Jiahong Xiang
 timeZone: Asia/Shanghai
@@ -7,7 +7,7 @@ params:
   description: Jiahong Xiang - PhD Student at SUSTech, focusing on Greybox Fuzzing, Program Repair, and Debugging Agents.
   title: Homepage of Jiahong Xiang
   images:
-    - https://ghabix.github.io/JiahongXiang/images/avatar-og.jpg
+    - https://ghabix.github.io/images/avatar-og.jpg
 
 frontmatter:
   lastmod:
