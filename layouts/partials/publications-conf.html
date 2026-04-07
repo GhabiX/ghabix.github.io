@@ -41,6 +41,8 @@
 
 {{- define "partials/journal-paper-item" -}}
 {{ $p := site.GetPage "" }}
+{{- $needsDot := not (or (strings.HasSuffix .title "?") (strings.HasSuffix .title "!") (strings.HasSuffix .title "."))
+-}}
 <span>
     <abbr title="{{ .journal_name | $p.RenderString }}">
         {{- if .journal_link -}}
@@ -53,7 +55,7 @@
     </abbr>
 </span>&nbsp;
 {{- partial "author-list.html" .authors -}}
-<span><strong>{{- .title -}}.</strong></span>
+<span><strong>{{- .title -}}{{- if $needsDot -}}.{{- end -}}</strong></span>
 <span><i>{{- .journal_name | $p.RenderString -}}</i></span>
 {{- if .links -}}
 {{- range .links -}}
