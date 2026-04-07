@@ -63,7 +63,7 @@ journalPapers:
   # TOSEM (to appear)
   - title: "Practical LLM-Based Function-Level Automated Program Repair: How Far Are We?"
     journal_name: "ACM Transactions on Software Engineering and Methodology, to appear"
-    journal_abbr: TOSEM
+    journal_abbr: "TOSEM 2025"
     links:
       - text: arXiv
         target: https://arxiv.org/abs/2404.12833
