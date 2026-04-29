@@ -6,7 +6,13 @@ conferencePapers:
     conference_link: https://conf.researchr.org/home/fse-2026
     venue_city: Montreal, Canada
     date: July 2026
-    links: []
+    links:
+      - text: PDF
+        target: files/fse2026-adi.pdf
+        download: false
+      - text: GitHub
+        target: https://github.com/GhabiX/ADI
+        download: false
     authors:
       - jiahong
       - xiaoyang_xu
@@ -66,6 +72,9 @@ journalPapers:
     journal_abbr: "TOSEM 2025"
     journal_link: https://dl.acm.org/journal/tosem
     links:
+      - text: PDF
+        target: files/tosem2025-srepair.pdf
+        download: false
       - text: arXiv
         target: https://arxiv.org/abs/2404.12833
         download: false
