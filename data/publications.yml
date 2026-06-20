@@ -6,6 +6,7 @@ conferencePapers:
     conference_link: https://conf.researchr.org/home/fse-2026
     venue_city: Montreal, Canada
     date: July 2026
+    award: "ACM SIGSOFT Distinguished Paper Award"
     links:
       - text: PDF
         target: files/fse2026-adi.pdf
