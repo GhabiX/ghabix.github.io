@@ -173,4 +173,19 @@ conferencePapersOld:
       - lingming
       - yuqun
 
-arxivPapers: []
+arxivPapers:
+  - title: "Spine: Compiling Subtask Trees into Structured Context for Long-Horizon Coding Agents"
+    arxiv_id: "arXiv 2026"
+    arxiv_link: https://arxiv.org/abs/2610.37224
+    links:
+      - text: arXiv
+        target: https://arxiv.org/abs/2610.37224
+        download: false
+      - text: GitHub
+        target: https://github.com/GhabiX/SpineCodex
+        download: false
+    authors:
+      - jiahong
+      - kunqiu_chen
+      - lingming
+      - yuqun

@@ -69,7 +69,9 @@
 {{- define "partials/arxiv-paper-item" -}}
 {{ $p := site.GetPage "" }}
 <span>
-    <strong>{{- .arxiv_id -}}</strong>
+    <abbr title="arXiv preprint">
+        <a href="{{ .arxiv_link | safeURL }}" target="_blank"><strong>{{- .arxiv_id -}}</strong></a>
+    </abbr>
 </span>&nbsp;
 {{- partial "author-list.html" .authors -}}
 {{- $needsDot := not (or (strings.HasSuffix .title "?") (strings.HasSuffix .title "!") (strings.HasSuffix .title "."))
@@ -90,6 +92,13 @@
             style="width: 24px; height: 24px; margin-right: 8px; vertical-align: text-bottom;" />Publications</h2>
     <ul>
         {{- $people := .Site.Data.people -}}
+        {{- range .Site.Data.publications.arxivPapers -}}
+        <li>
+            <p class="pub-item">
+                {{- partial "arxiv-paper-item" . -}}
+            </p>
+        </li>
+        {{- end -}}
         {{- range .Site.Data.publications.conferencePapers -}}
         <li>
             <p class="pub-item">
@@ -113,16 +122,4 @@
         {{- end -}}
     </ul>
 
-    {{- if .Site.Data.publications.arxivPapers -}}
-    <h3>Preprints</h3>
-    <ul>
-        {{- range .Site.Data.publications.arxivPapers -}}
-        <li>
-            <p class="pub-item">
-                {{- partial "arxiv-paper-item" . -}}
-            </p>
-        </li>
-        {{- end -}}
-    </ul>
-    {{- end -}}
 </section>

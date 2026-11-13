@@ -1,0 +1,29 @@
+- name: SpineCodex
+  desc: "Codex with Spine context management built in."
+  install: "npm i -g @spinejit/spine-codex"
+  note: "15K+ downloads"
+  links:
+    - text: GitHub
+      target: https://github.com/GhabiX/SpineCodex
+    - text: npm
+      target: https://www.npmjs.com/package/@spinejit/spine-codex
+
+- name: Spine Plugins
+  desc: "Spine for the Pi and DeepSeek coding-agent harnesses."
+  install: "pi install npm:@spinejit/pi-spinejit"
+  links:
+    - text: GitHub
+      target: https://github.com/GhabiX/spine-plugin
+    - text: npm (Pi)
+      target: https://www.npmjs.com/package/@spinejit/pi-spinejit
+    - text: npm (DSH)
+      target: https://www.npmjs.com/package/@spinejit/dsh-spinejit
+
+- name: ADI
+  desc: "Agent-centric debugging interface for LLM debugging agents (FSE 2026)."
+  install: "npm i -g @adi-tools/py"
+  links:
+    - text: GitHub
+      target: https://github.com/GhabiX/ADI
+    - text: npm
+      target: https://www.npmjs.com/package/@adi-tools/py
